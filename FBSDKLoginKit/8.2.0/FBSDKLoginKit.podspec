@@ -42,7 +42,7 @@ Pod::Spec.new do |s|
     ss.dependency 'FBSDKCoreKit', "~> #{s.version}"
     ss.exclude_files = 'FBSDKLoginKit/FBSDKLoginKit/include/**/*',
                        'FBSDKLoginKit/FBSDKLoginKit/Swift/Exports.swift'
-    ss.source_files   = 'FBSDKLoginKit/FBSDKLoginKit/**/*.{h,m}'
+    ss.source_files   = 'FBSDKLoginKit/FBSDKLoginKit/**/*.{h,m,swift}'
     ss.public_header_files = 'FBSDKLoginKit/FBSDKLoginKit/*.{h}'
   end
 end

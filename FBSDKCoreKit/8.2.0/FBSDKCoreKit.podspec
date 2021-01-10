@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
                     'FBSDKCoreKit/FBSDKCoreKit/GraphAPI/*',
                     'FBSDKCoreKit/FBSDKCoreKit/Internal/**/*']
 
-  s.default_subspecs = 'Core', 'Basics'
+  s.default_subspecs = 'Core'
   s.swift_version = '5.0'
   s.pod_target_xcconfig = {
     'GCC_PREPROCESSOR_DEFINITIONS': '$(inherited) FBSDKCOCOAPODS=1',
@@ -53,11 +53,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Core' do |ss|
-    ss.dependency 'FBSDKCoreKit/Basics'
-    ss.exclude_files = 'Sources/FBSDKCoreKit_Basics/**/*',
-                       'FBSDKCoreKit/FBSDKCoreKit/include/**/*',
-                       'FBSDKCoreKit/FBSDKCoreKit/Swift/Exports.swift'
-    ss.source_files = 'FBSDKCoreKit/FBSDKCoreKit/**/*.{h,hpp,m,mm,swift}'
+    s.exclude_files = 'FBSDKCoreKit/FBSDKCoreKit/include/**/*',
+                      'FBSDKCoreKit/FBSDKCoreKit/Swift/Exports.swift'
+    ss.source_files = 'FBSDKCoreKit/FBSDKCoreKit/**/*.{h,hpp,m,mm,swift}',
+                      'Sources/FBSDKCoreKit_Basics/**/*.{h,m}'
     ss.public_header_files = 'FBSDKCoreKit/FBSDKCoreKit/Internal/**/*.h',
                              'FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/**/*.h',
                              'FBSDKCoreKit/FBSDKCoreKit/*.h',
@@ -66,8 +65,9 @@ Pod::Spec.new do |s|
                              'FBSDKCoreKit/FBSDKCoreKit/AppLink/Resolver/*.h',
                              'FBSDKCoreKit/FBSDKCoreKit/GraphAPI/*.h'
     ss.private_header_files = 'FBSDKCoreKit/FBSDKCoreKit/Internal/**/*.h',
-                              'FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/**/*.h'
+                              'FBSDKCoreKit/FBSDKCoreKit/AppEvents/Internal/**/*.h',
+                              'Sources/FBSDKCoreKit_Basics/**/*+Internal.h'
     ss.resources = 'FacebookSDKStrings.bundle'
-    ss.library = 'c++', 'stdc++'
+    ss.library = 'c++', 'stdc++', 'z'
   end
 end

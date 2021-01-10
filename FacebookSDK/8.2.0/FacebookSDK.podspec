@@ -36,7 +36,6 @@ Pod::Spec.new do |s|
   s.subspec 'LoginKit' do |ss|
     ss.dependency 'FacebookSDK/CoreKit'
     ss.vendored_framework = 'FBSDKLoginKit.xcframework'
-    ss.dependency 'FBSDKLoginKit', "~> #{s.version}"
   end
   # s.subspec 'ShareKit' do |ss|
   #   ss.dependency 'FacebookSDK/CoreKit'

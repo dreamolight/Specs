@@ -32,6 +32,9 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
 
   s.subspec 'CoreKit' do |ss|
+  	ss.pod_target_xcconfig = {
+  	  'DEFINES_MODULE': 'YES'
+  	}
     ss.dependency 'FBSDKCoreKit', "~> #{s.version}"
   end
   s.subspec 'LoginKit' do |ss|
